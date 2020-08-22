@@ -4426,8 +4426,8 @@ tbody.collapse.show {
 
 .navbar-toggler-icon {
   display: inline-block;
-  width: 1.5em;
-  height: 1.5em;
+  width: 3em;
+  height: 3em;
   vertical-align: middle;
   content: "";
   background: no-repeat center center;
