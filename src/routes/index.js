@@ -25,7 +25,6 @@ router.get('/', (req, res) => {
     //     })
     // });
     res.render('layouts/dashboard');
-
 })
 
 router.get('/dashboard', (req, res) => {
