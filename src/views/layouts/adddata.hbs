@@ -1,0 +1,110 @@
+<div class="col-md-4 offset-md-3">
+    <div class="card">
+        <div class="p-3">
+            <h3>Masukkan Data Baru</h3>
+        </div>
+        {{!-- <div class="card-body">
+            {{#if contacts}}
+            <ul class="list-group">
+                {{#each contacts}}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    {{firstname}}
+                    {{lastname}} /
+                    {{email}}
+                    <a href="/delete-contact/{{@key}}" class="btn btn-danger">Delete</a>
+                </li>
+                {{/each}}
+            </ul>
+            {{else}}
+            <p>No Contacts Yet.</p>
+            {{/if}}
+        </div> --}}
+        <div class="p-3">
+            <form action="/new-contact" method="POST">
+                <h3>Data Jenazah</h3>
+                <div class="form-group">
+                    <label class="label-control">Nama Lengkap</label>
+                    <input type="text" name="Nama_LengkapJenazah" placeholder="Masukkan Nama Lengkap Jenazah"
+                        class="form-control" autofocus>
+                </div>
+
+                <div class="form-group">
+                    <label class="label-control">Tanggal Meninggal</label>
+                    <input id="datepicker" name="tanggalMeninggal" placeholder="Masukkan Tanggal Meninggal"
+                        class="form-control">
+                </div>
+                <div class="form-group">
+                    <label class="label-control">Tanggal Kubur</label>
+                    <input id="datepicker1" name="tanggalKubur" placeholder="Masukkan Tanggal Kubur"
+                        class="form-control">
+                </div>
+                <div class="">
+                    {{!-- <label class="label-control">Jenis Kelamin</label> --}}
+                    <label class="radio-inline"><input type="radio" name="lakilaki" checked>Laki-laki</label>
+                    <label class="radio-inline"><input type="radio" name="perempuan">Perempuan</label>
+
+                </div>
+                <div class="form-group">
+                    <label class="label-control">Nama Bapak</label>
+                    <input type="text" name="namaBapak" placeholder="Masukkan Nama Bapak" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label class="label-control">Nama Ibu</label>
+                    <input type="text" name="namaIbu" placeholder="Masukkan Nama Ibu" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label class="label-control">Nama Istri/Suami</label>
+                    <input type="text" name="namaIstriSuami" placeholder="Masukkan Nama Istri/Suami"
+                        class="form-control">
+                </div>
+                <h3>Data Makam</h3>
+                <div class="form-group">
+                    <label class="label-control">Blok</label>
+                    <input type="text" name="blok" placeholder="Masukkan Blok makam" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label class="label-control">Bagian</label>
+                    <input type="text" name="bagian" placeholder="Masukkan Bagian makam" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label class="label-control">Petak</label>
+                    <input type="text" name="petak" placeholder="Masukkan Petak makam" class="form-control">
+                </div>
+                <h3>Data Penanggung Jawab</h3>
+                <div class="form-group">
+                    <label class="label-control">Nama Lengkap</label>
+                    <input type="text" name="namaLengkapPenanggungJawab"
+                        placeholder="Masukkan Nama Lengkap Penanggung Jawab" class="form-control" autofocus>
+                </div>
+                <div class="form-group">
+                    <label class="label-control">Hubungan dengan Jenazah</label>
+                    <input type="email" name="hubunganPenanggungJawab" placeholder="Masukkan Hubungan dengan Jenazah"
+                        class="form-control">
+                </div>
+                <div class="form-group">
+                    <label class="label-control">Alamat</label>
+                    <input type="text" name="Alamat" placeholder="Masukkan Alamat" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label class="label-control">Kelurahan</label>
+                    <input type="text" name="kelurahan" placeholder="Masukkan Kelurahan" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label class="label-control">Kecamatan</label>
+                    <input type="text" name="kecamatan" placeholder="Masukkan Kecamatan" class="form-control">
+                </div>
+                <script>
+                    $('#datepicker').datepicker({
+                        uiLibrary: 'bootstrap3'
+                    });
+                    $('#datepicker2').datepicker({
+                        uiLibrary: 'bootstrap3'
+                    });
+                </script>
+                <button class="btn btn-primary btn-block">
+                    Add
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
