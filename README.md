@@ -1,6 +1,4 @@
-# Nodejs/Express Firebase Example
-
-![](./docs/screenshot.png)
+# SiBergota
 
 # Resources
 - https://firebase.google.com/docs/admin/setup
