@@ -10,7 +10,7 @@ admin.initializeApp({
 });
 
 
-const db = admin.database();
+const db = admin.firestore();
 
 const {
     Router
@@ -88,15 +88,47 @@ router.get('/homepage', (req, res) => {
     res.render('layouts/homepage');
 })
 
-router.post('/new-contact', (req, res) => {
-    const newContact = {
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        email: req.body.email,
-        phone: req.body.phone
-    }
-    db.ref('contacts').push(newContact);
+router.post('/addData', (req, res) => {
+    const data = {
+        namaLengkapJenazah: req.body.namaLengkapJenazah,
+        tanggalMeninggal: req.body.tanggalMeninggal,
+        tanggalKubur: req.body.tanggalKubur,
+        jenisKelamin: req.body.jenisKelamin,
+        namaBapak: req.body.namaBapak,
+        namaIbu: req.body.namaIbu,
+        namaIstriSuami: req.body.namaIstriSuami,
+        blok: req.body.blok,
+        bagian: req.body.bagian,
+        petak: req.body.petak,
+        namaLengkapPenanggungJawab: req.body.namaLengkapPenanggungJawab,
+        hubunganDenganPenanggungJawab: req.body.hubunganDenganPenanggungJawab,
+        alamatPenanggungJawab: req.body.alamatPenanggungJawab,
+        nomorhpPenanggungJawab: req.body.nomorhpPenanggungJawab,
+        kelurahanPenanggungJawab: req.body.kelurahanPenanggungJawab,
+        kecamatanPenanggungJawab: req.body.kecamatanPenanggungJawab,
+    };
+    // Add a new document in collection "cities" with ID 'LA'
+    db.collection('dataMakam').doc(data.namaLengkapJenazah + "_" + data.bagian).set(data);
     res.redirect('/');
+});
+router.get('/getData', async (req, res) => {
+    const citiesRef = db.collection('dataMakam');
+    const snapshot = await citiesRef.get();
+    if (snapshot.empty) {
+        console.log('No matching documents.');
+        return;
+    }
+    var obj = {
+        rows: []
+    };
+    snapshot.forEach(doc => {
+        console.log(doc.id, '=>', doc.data());
+        obj.rows.push(doc.data());
+
+    });
+
+
+    res.send(obj);
 });
 
 router.get('/delete-contact/:id', (req, res) => {

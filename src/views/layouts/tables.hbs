@@ -28,7 +28,21 @@ The above copyright notice and this permission notice shall be included in all c
   <!-- CSS Files -->
   <link href="css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="demo/demo.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  {{!-- <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.15.4/dist/bootstrap-table.min.css"> --}}
+
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
+    type="text/css">
+  <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+  <!-- Theme CSS -->
+  {{!-- <link href="css/freelancer.css" rel="stylesheet">
+
+  <link href="css/map.css" rel="stylesheet"> --}}
+
 </head>
 
 <body class="">
@@ -51,44 +65,6 @@ The above copyright notice and this permission notice shall be included in all c
               <p>Daftar Makam</p>
             </a>
           </li>
-
-          {{!-- <li class="nav-item ">
-                    <a class="nav-link" href="./typography">
-                        <i class="material-icons">library_books</i>
-                        <p>Typography</p>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="./icons">
-                        <i class="material-icons">bubble_chart</i>
-                        <p>Icons</p>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="./map">
-                        <i class="material-icons">location_ons</i>
-                        <p>Maps</p>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="./notifications">
-                        <i class="material-icons">notifications</i>
-                        <p>Notifications</p>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="./rtl">
-                        <i class="material-icons">language</i>
-                        <p>RTL Support</p>
-                    </a>
-                </li>
-                <li class="nav-item active-pro ">
-                    <a class="nav-link" href="./upgrade">
-                        <i class="material-icons">unarchive</i>
-                        <p>Upgrade to PRO</p>
-                    </a>
-                </li>
-            </ul> --}}
       </div>
     </div>
     <div class="main-panel">
@@ -135,14 +111,14 @@ The above copyright notice and this permission notice shall be included in all c
         </div>
       </nav>
       <!-- Navbar -->
-
-
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambahDataModal">
             Tambah Data Baru
           </button>
+
+
           <div class="row">
             <div class="col-md-12">
               <div class="card">
@@ -152,308 +128,34 @@ The above copyright notice and this permission notice shall be included in all c
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
-                    <table class="table">
-                      <thead class=" text-primary">
-                        <th>
-                          ID
-                        </th>
-                        <th>
-                          Nama Lengkap Jenazah
-                        </th>
-                        <th>
-                          Blok
-                        </th>
-                        <th>
-                          Bagian
-                        </th>
-                        <th>
-                          Petak
-                        </th>
-                        <th>
-                          Penanggung Jawab
-                        </th>
-
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>
-                            1
-                          </td>
-                          <td>
-                            Dakota Rice
-                          </td>
-                          <td>
-                            Niger
-                          </td>
-                          <td>
-                            Oud-Turnhout
-                          </td>
-                          <td class="text-primary">
-                            $36,738
-                          </td>
-                          <td>
-                            Oud-Turnhout
-                          </td>
-                          <td>
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary" data-toggle="modal"
-                              data-target="#exampleModalCenter">
-                              Detail Data
-                            </button>
-                            <!-- Modal -->
-
-
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            2
-                          </td>
-                          <td>
-                            Minerva Hooper
-                          </td>
-                          <td>
-                            Curaçao
-                          </td>
-                          <td>
-                            Sinaai-Waas
-                          </td>
-                          <td class="text-primary">
-                            $23,789
-                          </td>
-                          <td>
-                            Oud-Turnhout
-                          </td>
-                          <td>
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary" data-toggle="modal"
-                              data-target="#exampleModalCenter">
-                              Detail Data
-                            </button>
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                              aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                              <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Detail Data</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                      <span aria-hidden="true">&times;</span>
-                                    </button>
-                                  </div>
-                                  <div class="modal-body">
-                                    ...
-                                  </div>
-                                  {{!-- <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Ok</button>
-                                  </div> --}}
-                                </div>
-                              </div>
-                            </div>
-
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            3
-                          </td>
-                          <td>
-                            Sage Rodriguez
-                          </td>
-                          <td>
-                            Netherlands
-                          </td>
-                          <td>
-                            Baileux
-                          </td>
-                          <td class="text-primary">
-                            $56,142
-                          </td>
-                          <td>
-                            Oud-Turnhout
-                          </td>
-                          <td>
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary" data-toggle="modal"
-                              data-target="#exampleModalCenter">
-                              Detail Data
-                            </button>
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                              aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                              <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Detail Data</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                      <span aria-hidden="true">&times;</span>
-                                    </button>
-                                  </div>
-                                  <div class="modal-body">
-                                    ...
-                                  </div>
-                                  {{!-- <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Ok</button>
-                                  </div> --}}
-                                </div>
-                              </div>
-                            </div>
-
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            4
-                          </td>
-                          <td>
-                            Philip Chaney
-                          </td>
-                          <td>
-                            Korea, South
-                          </td>
-                          <td>
-                            Overland Park
-                          </td>
-                          <td class="text-primary">
-                            $38,735
-                          </td>
-                          <td>
-                            Oud-Turnhout
-                          </td>
-                          <td>
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary" data-toggle="modal"
-                              data-target="#exampleModalCenter">
-                              Detail Data
-                            </button>
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                              aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                              <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Detail Data</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                      <span aria-hidden="true">&times;</span>
-                                    </button>
-                                  </div>
-                                  <div class="modal-body">
-                                    ...
-                                  </div>
-                                  {{!-- <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Ok</button>
-                                  </div> --}}
-                                </div>
-                              </div>
-                            </div>
-
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            5
-                          </td>
-                          <td>
-                            Doris Greene
-                          </td>
-                          <td>
-                            Malawi
-                          </td>
-                          <td>
-                            Feldkirchen in Kärnten
-                          </td>
-                          <td class="text-primary">
-                            $63,542
-                          </td>
-                          <td>
-                            Oud-Turnhout
-                          </td>
-                          <td>
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary" data-toggle="modal"
-                              data-target="#exampleModalCenter">
-                              Detail Data
-                            </button>
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                              aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                              <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Detail Data</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                      <span aria-hidden="true">&times;</span>
-                                    </button>
-                                  </div>
-                                  <div class="modal-body">
-                                    ...
-                                  </div>
-                                  {{!-- <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Ok</button>
-                                  </div> --}}
-                                </div>
-                              </div>
-                            </div>
-
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            6
-                          </td>
-                          <td>
-                            Mason Porter
-                          </td>
-                          <td>
-                            Chile
-                          </td>
-                          <td>
-                            Gloucester
-                          </td>
-                          <td class="text-primary">
-                            $78,615
-                          </td>
-                          <td>
-                            Oud-Turnhout
-                          </td>
-                          <td>
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary" data-toggle="modal"
-                              data-target="#exampleModalCenter">
-                              Detail Data
-                            </button>
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                              aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                              <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle">Detail Data</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                      <span aria-hidden="true">&times;</span>
-                                    </button>
-                                  </div>
-                                  <div class="modal-body">
-                                    ...
-                                  </div>
-                                  {{!-- <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Ok</button>
-                                  </div> --}}
-                                </div>
-                              </div>
-                            </div>
-
-                          </td>
-                        </tr>
-
-
-                      </tbody>
-                    </table>
+                    <div id="tableIPAProv">
+                      {{!-- <table class="table" data-toggle="table" data-sort-stable="true" data-height="460"
+                        data-pagination="true" data-side-pagination="client" data-ajax="ajaxRequest"
+                        data-page-list="[10, 25, 50, 100, All]" data-query-params=" queryParams"> --}}
+                      <table id="table" data-toggle="table" data-height="480" data-ajax="ajaxRequest"
+                        data-side-pagination="server" data-pagination="true">
+                        <thead>
+                          <tr>
+                            <th data-field="namaLengkapJenazah">namaLengkapJenazah</th>
+                            <th data-field="tanggalMeninggal">Kode</th>
+                            <th data-field="tanggalKubur">Nama Provinsi</th>
+                            <th data-field="jenisKelamin">Jumlah Satuan Pendidikan</th>
+                            <th data-field="namaBapak">Jumlah Peserta</th>
+                            <th data-field="namaIbu">Tahun</th>
+                            <th data-field="namaIstriSuami" data-sortable="true">Bahasa Indonesia</th>
+                            <th data-field="blok" data-sortable="true">Bahasa Inggris</th>
+                            <th data-field="bagian" data-sortable="true">Matematika</th>
+                            <th data-field="petak" data-sortable="true">Fisika</th>
+                            <th data-field="namaLengkapPenanggungJawab" data-sortable="true">Kimia</th>
+                            <th data-field="hubunganDenganPenanggungJawab" data-sortable="true">Biologi</th>
+                            <th data-field="alamatPenanggungJawab" data-sortable="true">Rerata Nilai</th>
+                            <th data-field="nomorhpPenanggungJawab" data-sortable="true">Rerata Nilai</th>
+                            <th data-field="kelurahanPenanggungJawab" data-sortable="true">Rerata Nilai</th>
+                            <th data-field="kecamatanPenanggungJawab" data-sortable="true">Rerata Nilai</th>
+                          </tr>
+                        </thead>
+                      </table>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -553,89 +255,91 @@ The above copyright notice and this permission notice shall be included in all c
         </div>
         <div class="modal-body">
           <div class="p-3">
-            <form action="/new-contact" method="POST">
+            <form action="/addData" method="POST">
               <h3>Data Jenazah</h3>
               <div class="form-group">
                 <label class="label-control">Nama Lengkap</label>
-                <input type="text" name="Nama_LengkapJenazah" placeholder="Masukkan Nama Lengkap Jenazah"
-                  class="form-control" autofocus>
+                <input type="text" name="namaLengkapJenazah" placeholder="Masukkan Nama Lengkap Jenazah"
+                  class="form-control" required autofocus required>
               </div>
-
               <div class="form-group">
                 <label class="label-control">Tanggal Meninggal</label>
-                <input id="datepicker" name="tanggalMeninggal" placeholder="Masukkan Tanggal Meninggal"
-                  class="form-control">
+                <input type="date" id="datepicker" name="tanggalMeninggal" placeholder="Masukkan Tanggal Meninggal"
+                  class="form-control" required>
               </div>
               <div class="form-group">
                 <label class="label-control">Tanggal Kubur</label>
-                <input id="datepicker1" name="tanggalKubur" placeholder="Masukkan Tanggal Kubur" class="form-control">
+                <input type="date" id="datepicker1" name="tanggalKubur" placeholder="Masukkan Tanggal Kubur"
+                  class="form-control" required>
               </div>
               <div class="">
-                {{!-- <label class="label-control">Jenis Kelamin</label> --}}
-                <label class="radio-inline"><input type="radio" name="lakilaki" checked>Laki-laki</label>
-                <label class="radio-inline"><input type="radio" name="perempuan">Perempuan</label>
-
+                <label class="label-control">Jenis Kelamin</label>
+                <br>
+                <label class="radio-inline"><input type="radio" name="jenisKelamin" value="lakilaki">Laki-laki</label>
+                <label class="radio-inline"><input type="radio" name="jenisKelamin" value="perempuan">Perempuan</label>
               </div>
               <div class="form-group">
                 <label class="label-control">Nama Bapak</label>
-                <input type="text" name="namaBapak" placeholder="Masukkan Nama Bapak" class="form-control">
+                <input type="text" name="namaBapak" placeholder="Masukkan Nama Bapak" class="form-control" required>
               </div>
               <div class="form-group">
                 <label class="label-control">Nama Ibu</label>
-                <input type="text" name="namaIbu" placeholder="Masukkan Nama Ibu" class="form-control">
+                <input type="text" name="namaIbu" placeholder="Masukkan Nama Ibu" class="form-control" required>
               </div>
               <div class="form-group">
                 <label class="label-control">Nama Istri/Suami</label>
-                <input type="text" name="namaIstriSuami" placeholder="Masukkan Nama Istri/Suami" class="form-control">
+                <input type="text" name="namaIstriSuami" placeholder="Masukkan Nama Istri/Suami" class="form-control"
+                  required>
               </div>
               <h3>Data Makam</h3>
               <div class="form-group">
                 <label class="label-control">Blok</label>
-                <input type="text" name="blok" placeholder="Masukkan Blok makam" class="form-control">
+                <input type="text" name="blok" placeholder="Masukkan Blok makam" class="form-control" required>
               </div>
               <div class="form-group">
                 <label class="label-control">Bagian</label>
-                <input type="text" name="bagian" placeholder="Masukkan Bagian makam" class="form-control">
+                <input type="text" name="bagian" placeholder="Masukkan Bagian makam" class="form-control" required>
               </div>
               <div class="form-group">
                 <label class="label-control">Petak</label>
-                <input type="text" name="petak" placeholder="Masukkan Petak makam" class="form-control">
+                <input type="text" name="petak" placeholder="Masukkan Petak makam" class="form-control" required>
               </div>
               <h3>Data Penanggung Jawab</h3>
               <div class="form-group">
                 <label class="label-control">Nama Lengkap</label>
                 <input type="text" name="namaLengkapPenanggungJawab"
-                  placeholder="Masukkan Nama Lengkap Penanggung Jawab" class="form-control" autofocus>
+                  placeholder="Masukkan Nama Lengkap Penanggung Jawab" class="form-control" required autofocus>
               </div>
               <div class="form-group">
                 <label class="label-control">Hubungan dengan Jenazah</label>
-                <input type="email" name="hubunganPenanggungJawab" placeholder="Masukkan Hubungan dengan Jenazah"
-                  class="form-control">
+                <input type="text" name="hubunganDenganPenanggungJawab" placeholder="Masukkan Hubungan dengan Jenazah"
+                  class="form-control" required>
               </div>
               <div class="form-group">
                 <label class="label-control">Alamat</label>
-                <input type="text" name="Alamat" placeholder="Masukkan Alamat" class="form-control">
+                <input type="text" name="alamatPenanggungJawab" placeholder="Masukkan Alamat" class="form-control"
+                  required>
+              </div>
+              <div class="form-group">
+                <label class="label-control">Nomor HP</label>
+                <input type="number" name="nomorhpPenanggungJawab" placeholder="Masukkan Nomor Handphone"
+                  class="form-control" required>
               </div>
               <div class="form-group">
                 <label class="label-control">Kelurahan</label>
-                <input type="text" name="kelurahan" placeholder="Masukkan Kelurahan" class="form-control">
+                <input type="text" name="kelurahanPenanggungJawab" placeholder="Masukkan Kelurahan" class="form-control"
+                  required>
               </div>
               <div class="form-group">
                 <label class="label-control">Kecamatan</label>
-                <input type="text" name="kecamatan" placeholder="Masukkan Kecamatan" class="form-control">
+                <input type="text" name="kecamatanPenanggungJawab" placeholder="Masukkan Kecamatan" class="form-control"
+                  required>
               </div>
-              <script>
-                $('#datepicker').datepicker({
-                  uiLibrary: 'bootstrap3'
-                });
-                $('#datepicker2').datepicker({
-                  uiLibrary: 'bootstrap3'
-                });
-              </script>
               <button class="btn btn-primary btn-block">
                 Tambah Data
               </button>
             </form>
+
           </div>
         </div>
         {{!-- <div class="modal-footer">
@@ -646,6 +350,72 @@ The above copyright notice and this permission notice shall be included in all c
     </div>
   </div>
 
+
+
+
+
+
+
+
 </body>
+
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+  crossorigin="" />
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="css/bootstrap-table.min.css">
+
+
+<!-- Plugin JavaScript -->
+
+<!-- Contact Form JavaScript -->
+
+<!-- Latest compiled and minified JavaScript -->
+<!-- Latest compiled and minified Locales -->
+<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+  integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+  crossorigin=""></script>
+<script type="text/javascript" src="idpeningkatan.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+  integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous">
+  </script>
+
+{{!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+  integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous">
+  </script> --}}
+<script src="https://unpkg.com/bootstrap-table@1.15.4/dist/bootstrap-table.min.js"></script>
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+<script src="js/jqBootstrapValidation.js"></script>
+<script src="js/contact_me.js"></script>
+
+
+<!-- Custom scripts for this template -->
+{{!-- <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> --}}
+
+<!-- Plugin JavaScript -->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="js/freelancer.min.js"></script>
+
+<script src="getData.js"></script>
+<script src="tabel.js"></script>
+<script src="map.js"></script>
+
+<!-- Custom scripts for this template -->
+
+<script>
+  $("input[required], select[required]").attr("oninvalid", "this.setCustomValidity('Masukkan ini tidak boleh kosong')");
+  $("input[required], select[required]").attr("oninput", "setCustomValidity('')");
+  // your custom ajax request here
+  function ajaxRequest(params) {
+    var url = '/getData'
+    $.get(url + '?' + $.param(params.data)).then(function (res) {
+      params.success(res)
+    })
+  }
+</script>
 
 </html>
