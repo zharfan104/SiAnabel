@@ -8,7 +8,42 @@ admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
     databaseURL: "https://fitto-ecadd.firebaseio.com"
 });
-
+fromKeyMap = {
+    "namaLengkapJenazah": "Nama Jenazah",
+    "tanggalMeninggal": "Tanggal Meninggal",
+    "tanggalKubur": "Tanggal Kubur",
+    "jenisKelamin": "Jenis Kelamin",
+    "namaBapak": "Nama Bapak",
+    "namaIbu": "Nama Ibu",
+    "namaIstriSuami": "Nama Istri/Suami",
+    "blok": "Blok",
+    "bagian": "Bagian",
+    "petak": "Petak",
+    "namaLengkapPenanggungJawab": "Nama Penanggung Jawab",
+    "hubunganDenganPenanggungJawab": "Hubungan PJ",
+    "nomorhpPenanggungJawab": "Nomor Telepon PJ",
+    "alamatPenanggungJawab": "Alamat PJ",
+    "kelurahanPenanggungJawab": "Kelurahan PJ",
+    "kecamatanPenanggungJawab": "Kecamatan PJ",
+}
+listdariobjek = [
+    "namaLengkapJenazah",
+    "tanggalMeninggal",
+    "tanggalKubur",
+    "jenisKelamin",
+    "namaBapak",
+    "namaIbu",
+    "namaIstriSuami",
+    "blok",
+    "bagian",
+    "petak",
+    "namaLengkapPenanggungJawab",
+    "hubunganDenganPenanggungJawab",
+    "nomorhpPenanggungJawab",
+    "alamatPenanggungJawab",
+    "kelurahanPenanggungJawab",
+    "kecamatanPenanggungJawab",
+]
 
 const db = admin.firestore();
 
@@ -24,9 +59,18 @@ router.get('/', (req, res) => {
     //         contacts: data
     //     })
     // });
-    res.render('layouts/dashboard');
+    res.render('layouts/homepage');
 })
 
+router.get('/signOut', (req, res) => {
+    // db.ref('contacts').once('value', (snapshot) => {
+    //     data = snapshot.val();
+    //     res.render('index', {
+    //         contacts: data
+    //     })
+    // });
+    res.render('layouts/homepage');
+})
 router.get('/dashboard', (req, res) => {
     res.render('layouts/dashboard');
 })
@@ -71,6 +115,9 @@ router.post('/login', (req, res) => {
     res.render('layouts/dashboard');
 })
 
+router.get('/pengaturan', (req, res) => {
+    res.render('layouts/pengaturan');
+})
 
 router.get('/forgot', (req, res) => {
     res.render('layouts/forgot');
@@ -109,7 +156,7 @@ router.post('/addData', (req, res) => {
     };
     // Add a new document in collection "cities" with ID 'LA'
     db.collection('dataMakam').doc(data.namaLengkapJenazah + "_" + data.bagian).set(data);
-    res.redirect('/');
+    res.redirect('/tables');
 });
 router.get('/getData', async (req, res) => {
     const citiesRef = db.collection('dataMakam');
@@ -122,15 +169,20 @@ router.get('/getData', async (req, res) => {
         rows: []
     };
     snapshot.forEach(doc => {
-        console.log(doc.id, '=>', doc.data());
-        obj.rows.push(doc.data());
-
-    });
-
-
-    res.send(obj);
+        let map = new Map()
+        listdariobjek.forEach(
+            x => {
+                // console.log(x)
+                // console.log(fromKeyMap[x], doc.data()[x])
+                map.set(fromKeyMap[x], doc.data()[x]);
+            }
+        )
+        const mapakhir = Object.fromEntries(map);
+        obj.rows.push(mapakhir)
+    })
+    console.log(obj.rows[0])
+    res.send(obj)
 });
-
 router.get('/delete-contact/:id', (req, res) => {
     db.ref('contacts/' + req.params.id).remove();
     res.redirect('/');

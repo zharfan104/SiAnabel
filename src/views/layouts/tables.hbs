@@ -65,6 +65,18 @@ The above copyright notice and this permission notice shall be included in all c
               <p>Daftar Makam</p>
             </a>
           </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="./pengaturan">
+              <i class="material-icons">settings</i>
+              <p>Pengaturan</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="./signOut">
+              <i class="material-icons">login</i>
+              <p>Keluar</p>
+            </a>
+          </li>
       </div>
     </div>
     <div class="main-panel">
@@ -80,7 +92,7 @@ The above copyright notice and this permission notice shall be included in all c
 
           <div class="collapse navbar-collapse justify-content-end">
 
-            <ul class="navbar-nav">
+            {{!-- <ul class="navbar-nav">
 
               <li class="nav-item dropdown">
                 <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown"
@@ -106,7 +118,7 @@ The above copyright notice and this permission notice shall be included in all c
                   <a class="dropdown-item" href="/homepage">Keluar</a>
                 </div>
               </li>
-            </ul>
+            </ul> --}}
           </div>
         </div>
       </nav>
@@ -129,29 +141,30 @@ The above copyright notice and this permission notice shall be included in all c
                 <div class="card-body">
                   <div class="table-responsive">
                     <div id="tableIPAProv">
-                      {{!-- <table class="table" data-toggle="table" data-sort-stable="true" data-height="460"
-                        data-pagination="true" data-side-pagination="client" data-ajax="ajaxRequest"
-                        data-page-list="[10, 25, 50, 100, All]" data-query-params=" queryParams"> --}}
                       <table id="table" data-toggle="table" data-height="480" data-ajax="ajaxRequest"
-                        data-side-pagination="server" data-pagination="true">
+                        data-side-pagination="server" data-pagination="true" data-detail-view="true"
+                        data-show-columns="true" data-show-fullscreen="true" data-buttons-class="primary"
+                        data-detail-formatter="detailFormatter">
                         <thead>
                           <tr>
-                            <th data-field="namaLengkapJenazah">namaLengkapJenazah</th>
-                            <th data-field="tanggalMeninggal">Kode</th>
-                            <th data-field="tanggalKubur">Nama Provinsi</th>
-                            <th data-field="jenisKelamin">Jumlah Satuan Pendidikan</th>
-                            <th data-field="namaBapak">Jumlah Peserta</th>
-                            <th data-field="namaIbu">Tahun</th>
-                            <th data-field="namaIstriSuami" data-sortable="true">Bahasa Indonesia</th>
-                            <th data-field="blok" data-sortable="true">Bahasa Inggris</th>
-                            <th data-field="bagian" data-sortable="true">Matematika</th>
-                            <th data-field="petak" data-sortable="true">Fisika</th>
-                            <th data-field="namaLengkapPenanggungJawab" data-sortable="true">Kimia</th>
-                            <th data-field="hubunganDenganPenanggungJawab" data-sortable="true">Biologi</th>
-                            <th data-field="alamatPenanggungJawab" data-sortable="true">Rerata Nilai</th>
-                            <th data-field="nomorhpPenanggungJawab" data-sortable="true">Rerata Nilai</th>
-                            <th data-field="kelurahanPenanggungJawab" data-sortable="true">Rerata Nilai</th>
-                            <th data-field="kecamatanPenanggungJawab" data-sortable="true">Rerata Nilai</th>
+                            <th data-field="Nama Jenazah">Nama Jenazah</th>
+                            <th data-field="Tanggal Meninggal">Tanggal Meninggal</th>
+                            <th data-field="Tanggal Kubur">Tanggal Kubur</th>
+                            <th data-field="Jenis Kelamin">Jenis Kelamin</th>
+                            {{!-- <th data-field="Nama Bapak">Nama Bapak</th>
+                            <th data-field="Nama Ibu">Nama Ibu</th>
+                            <th data-field="Nama Istri/Suami">Nama Istri/Suami</th> --}}
+                            <th data-field="Blok">Blok</th>
+                            <th data-field="Bagian">Bagian</th>
+                            <th data-field="Petak">Petak</th>
+                            {{!-- <th data-field="Nama Penanggung
+                              Jawab">Nama Lengkap Penanggung
+                              Jawab</th> --}}
+                            {{!-- <th data-field="Hubungan PJ">Hubungan PJ</th>
+                            <th data-field="Nomor Telepon PJ">Nomor Telepon PJ</th>
+                            <th data-field="Alamat PJ">Alamat PJ</th>
+                            <th data-field="Kelurahan PJ">Kelurahan PJ</th>
+                            <th data-field="Kecamatan PJ">Kecamatan PJ</th> --}}
                           </tr>
                         </thead>
                       </table>
@@ -163,7 +176,7 @@ The above copyright notice and this permission notice shall be included in all c
           </div>
         </div>
       </div>
-      <footer class="footer">
+      {{!-- <footer class="footer">
         <div class="container-fluid">
           <nav class="float-left">
             <ul>
@@ -197,7 +210,7 @@ The above copyright notice and this permission notice shall be included in all c
             <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
           </div>
         </div>
-      </footer>
+      </footer> --}}
     </div>
   </div>
 
@@ -275,21 +288,22 @@ The above copyright notice and this permission notice shall be included in all c
               <div class="">
                 <label class="label-control">Jenis Kelamin</label>
                 <br>
-                <label class="radio-inline"><input type="radio" name="jenisKelamin" value="lakilaki">Laki-laki</label>
-                <label class="radio-inline"><input type="radio" name="jenisKelamin" value="perempuan">Perempuan</label>
+                <label class="radio-inline"><input type="radio" name="jenisKelamin" value="Laki-laki">Laki-laki</label>
+                <label class="radio-inline"><input type="radio" name="jenisKelamin" value="Perempuan">Perempuan</label>
               </div>
               <div class="form-group">
                 <label class="label-control">Nama Bapak</label>
-                <input type="text" name="namaBapak" placeholder="Masukkan Nama Bapak" class="form-control" required>
+                <input type="text" name="namaBapak" placeholder="Masukkan Nama Bapak Jenazah" class="form-control"
+                  required>
               </div>
               <div class="form-group">
                 <label class="label-control">Nama Ibu</label>
-                <input type="text" name="namaIbu" placeholder="Masukkan Nama Ibu" class="form-control" required>
+                <input type="text" name="namaIbu" placeholder="Masukkan Nama Ibu Jenazah" class="form-control" required>
               </div>
               <div class="form-group">
                 <label class="label-control">Nama Istri/Suami</label>
-                <input type="text" name="namaIstriSuami" placeholder="Masukkan Nama Istri/Suami" class="form-control"
-                  required>
+                <input type="text" name="namaIstriSuami" placeholder="Masukkan Nama Istri/Suami Jenazah"
+                  class="form-control" required>
               </div>
               <h3>Data Makam</h3>
               <div class="form-group">
@@ -407,9 +421,17 @@ The above copyright notice and this permission notice shall be included in all c
 <!-- Custom scripts for this template -->
 
 <script>
+
   $("input[required], select[required]").attr("oninvalid", "this.setCustomValidity('Masukkan ini tidak boleh kosong')");
   $("input[required], select[required]").attr("oninput", "setCustomValidity('')");
-  // your custom ajax request here
+
+  function detailFormatter(index, row) {
+    var html = []
+    $.each(row, function (key, value) {
+      html.push('<p><b>' + key + ':</b> ' + value + '</p>')
+    })
+    return html.join('')
+  }
   function ajaxRequest(params) {
     var url = '/getData'
     $.get(url + '?' + $.param(params.data)).then(function (res) {
