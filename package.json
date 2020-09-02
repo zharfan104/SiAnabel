@@ -12,11 +12,21 @@
   "license": "ISC",
   "dependencies": {
     "@chenfengyuan/datepicker": "^1.0.9",
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.5",
     "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
     "express-handlebars": "^3.1.0",
+    "express-session": "^1.17.1",
+    "firebase": "^7.14.2",
     "firebase-admin": "^8.4.0",
     "firebase-app": "0.0.1",
-    "morgan": "^1.9.1"
+    "method-override": "^3.0.0",
+    "morgan": "^1.9.1",
+    "passport": "^0.4.1",
+    "passport-jwt-firebase": "^2.0.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.0.1"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"
