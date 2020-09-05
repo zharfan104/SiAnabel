@@ -1,4 +1,4 @@
-// var serviceAccount = require(process.env.GOOGLE_APPLICATIONS_CREDENTIALS);
+const userService = require("./user_services");
 
 
 fromKeyMap = {
@@ -63,46 +63,48 @@ router.get("/signOut", (req, res) => {
     // });
     res.render("layouts/homepage.ejs");
 });
-router.get("/dashboard", (req, res) => {
+router.get("/dashboard", checkAuthenticated, (req, res) => {
     res.render("layouts/dashboard.ejs");
 });
 
-router.get("/icons", (req, res) => {
+router.get("/icons", checkAuthenticated, (req, res) => {
     res.render("layouts/icons.ejs");
 });
 
-router.get("/maps", (req, res) => {
+router.get("/maps", checkAuthenticated, (req, res) => {
     res.render("layouts/maps.ejs");
 });
-router.get("/map", (req, res) => {
+router.get("/map", checkAuthenticated, (req, res) => {
     res.render("layouts/map.ejs");
 });
 
-router.get("/notifications", (req, res) => {
+router.get("/notifications", checkAuthenticated, (req, res) => {
     res.render("layouts/notifications.ejs");
 });
 
-router.get("/rtl", (req, res) => {
+router.get("/rtl", checkAuthenticated, (req, res) => {
     res.render("layouts/rtl.ejs");
 });
 
-router.get("/tables", (req, res) => {
+router.get("/tables", checkAuthenticated, (req, res) => {
     res.render("layouts/tables.ejs");
 });
 
-router.get("/typography", (req, res) => {
+router.get("/typography", checkAuthenticated, (req, res) => {
     res.render("layouts/typography.ejs");
 });
 
-router.get("/upgrade", (req, res) => {
+router.get("/upgrade", checkAuthenticated, (req, res) => {
     res.render("layouts/upgrade.ejs");
 });
-router.get("/user", (req, res) => {
+router.get("/user", checkAuthenticated, (req, res) => {
     res.render("layouts/user.ejs");
 });
+router.get("/test", async (req, res) => {
+    res.render("layouts/test.ejs");
+});
 
-
-router.get("/pengaturan", (req, res) => {
+router.get("/pengaturan", checkAuthenticated, (req, res) => {
     res.render("layouts/pengaturan.ejs");
 });
 
@@ -255,7 +257,6 @@ router.post("/register", checkNotAuthenticated, async (req, res) => {
         res.redirect("/register");
     }
 });
-
 router.delete("/logout", (req, res) => {
     req.logOut();
     res.redirect("/login");
@@ -275,5 +276,4 @@ function checkNotAuthenticated(req, res, next) {
     }
     next();
 }
-
 module.exports = router;
