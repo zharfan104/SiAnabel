@@ -1,53 +1,147 @@
+<!DOCTYPE html>
 <%- contentFor('header') %>
+<html lang="en">
 
-<link href="https://unpkg.com/bootstrap-table@1.17.1/dist/bootstrap-table.min.css" rel="stylesheet">
-
-<script src="https://unpkg.com/bootstrap-table@1.17.1/dist/bootstrap-table.min.js"></script>
-
-<table id="table" data-toggle="table" data-height="480" data-ajax="ajaxRequest" data-side-pagination="server"
-    data-pagination="true" data-detail-view="true" data-show-columns="true" data-show-fullscreen="true"
-    data-buttons-class="primary" data-detail-formatter="detailFormatter">
-    <thead>
-        <tr>
-            <th data-field="Nama Jenazah">Nama Jenazah</th>
-            <th data-field="Tanggal Meninggal">Tanggal Meninggal</th>
-            <th data-field="Tanggal Kubur">Tanggal Kubur</th>
-            <th data-field="Jenis Kelamin">Jenis Kelamin</th>
-            <th data-field="Nama Bapak">Nama Bapak</th>
-            <th data-field="Nama Ibu">Nama Ibu</th>
-            <th data-field="Nama Istri/Suami">Nama Istri/Suami</th>
-            <th data-field="Blok">Blok</th>
-            <th data-field="Bagian">Bagian</th>
-            <th data-field="Petak">Petak</th>
-            <th data-field="Nama Penanggung
-      Jawab">Nama Lengkap Penanggung
-                Jawab</th>
-            <th data-field="Hubungan PJ">Hubungan PJ</th>
-            <th data-field="Nomor Telepon PJ">Nomor Telepon PJ</th>
-            <th data-field="Alamat PJ">Alamat PJ</th>
-            <th data-field="Kelurahan PJ">Kelurahan PJ</th>
-            <th data-field="Kecamatan PJ">Kecamatan PJ</th>
-        </tr>
-    </thead>
-</table>
-<script>
-    $("input[required], select[required]").attr("oninvalid",
-        "this.setCustomValidity('Masukkan ini tidak boleh kosong')");
-    $("input[required], select[required]").attr("oninput", "setCustomValidity('')");
-
-    function detailFormatter(index, row) {
-        var html = []
-        $.each(row, function (key, value) {
-            html.push('<p><b>' + key + ':</b> ' + value + '</p>')
-        })
-        return html.join('')
+<style>
+    * {
+        box-sizing: border-box
     }
 
-    function ajaxRequest(params) {
-        var url = '/getDataMakam'
-        $.get(url + '?' + $.param(params.data)).then(function (res) {
-            params.success(res)
-            console.log(res)
-        })
+    /* Set a style for all buttons */
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        opacity: 0.9;
+    }
+
+    button:hover {
+        opacity: 1;
+    }
+
+    /* Float cancel and delete buttons and add an equal width */
+    .cancelbtn,
+    .deletebtn {
+        float: left;
+        width: 50%;
+    }
+
+    /* Add a color to the cancel button */
+    .cancelbtn {
+        background-color: #ccc;
+        color: black;
+    }
+
+    /* Add a color to the delete button */
+    .deletebtn {
+        background-color: #f44336;
+    }
+
+    /* Add padding and center-align text to the container */
+    .container {
+        padding: 16px;
+        text-align: center;
+    }
+
+    /* The Modal (background) */
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: #474e5d;
+        padding-top: 50px;
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto 15% auto;
+        /* 5% from the top, 15% from the bottom and centered */
+        border: 1px solid #888;
+        width: 80%;
+        /* Could be more or less, depending on screen size */
+    }
+
+    /* Style the horizontal ruler */
+    hr {
+        border: 1px solid #f1f1f1;
+        margin-bottom: 25px;
+    }
+
+    /* The Modal Close Button (x) */
+    .close {
+        position: absolute;
+        right: 35px;
+        top: 15px;
+        font-size: 40px;
+        font-weight: bold;
+        color: #f1f1f1;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #f44336;
+        cursor: pointer;
+    }
+
+    /* Clear floats */
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    /* Change styles for cancel button and delete button on extra small screens */
+    @media screen and (max-width: 300px) {
+
+        .cancelbtn,
+        .deletebtn {
+            width: 100%;
+        }
+    }
+</style>
+<button onclick="document.getElementById('id01').style.display='block'">Open Modal</button>
+
+<div id="id01" class="modal">
+    <span onclick="document.getElementById('id01').style.display='none'" class="close"
+        title="Close Modal">&times;</span>
+    <form class="modal-content" action="/action_page.php">
+        <div class="container">
+            <h1>Delete Account</h1>
+            <p>Are you sure you want to delete your account?</p>
+
+            <div class="clearfix">
+                <button type="button" class="cancelbtn">Cancel</button>
+                <button type="button" class="deletebtn">Delete</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<script>
+    // Get the modal
+    var modal = document.getElementById('id01');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
     }
 </script>

@@ -86,7 +86,7 @@ router.get("/rtl", checkAuthenticated, (req, res) => {
     res.render("layouts/rtl.ejs");
 });
 
-router.get("/tables", checkAuthenticated, (req, res) => {
+router.get("/tables", (req, res) => {
     res.render("layouts/tables.ejs");
 });
 
@@ -120,6 +120,20 @@ router.get("/reset", (req, res) => {
 router.get("/homepage", (req, res) => {
     res.render("layouts/homepage.ejs");
 });
+router.post("/hapusDataMakam", (req, res) => {
+    // Create a document reference
+    var dataMakam = userService.db.collection('dataMakam').where('namaLengkapJenazah', '==', 'Nama Lengkap');
+    dataMakam.get().then(function (querySnapshot) {
+        querySnapshot.forEach(function (doc) {
+            doc.ref.delete();
+        });
+    });
+    // Remove the 'capital' field from the document
+});
+router.post("/homepage", (req, res) => {
+    res.render("layouts/homepage.ejs");
+});
+
 
 router.post("/addData", (req, res) => {
     const data = {
@@ -243,6 +257,7 @@ router.post(
 router.get("/register", checkNotAuthenticated, (req, res) => {
     res.render("/layouts/register.ejs");
 });
+
 router.post("/register", checkNotAuthenticated, async (req, res) => {
     try {
         const hashedPassword = req.body.password;

@@ -28,7 +28,7 @@ const users = [];
 // Static files
 app.use(express.static(path.join(__dirname, "public")));
 app.use(require('body-parser').urlencoded({
-    extended: false
+    extended: true
 }));
 
 initializePassport(
@@ -44,6 +44,9 @@ app.use(passport.session());
 app.use(methodOverride("_method"));
 
 // Routes
-app.use(require("./routes/index"));
 
+app.use(require("./routes/index"));
+app.use(function (req, res) {
+    res.status(404).render("layouts/notfound.ejs");
+});
 module.exports = app;

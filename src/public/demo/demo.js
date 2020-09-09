@@ -15,7 +15,7 @@ demo = {
           tension: 0
         }),
         low: 0,
-        high: 50, // SI Bergota: we recommend you to set the high sa the biggest value + something for a better look
+        high: 50, // SIAP BERGOTA: we recommend you to set the high sa the biggest value + something for a better look
         chartPadding: {
           top: 0,
           right: 0,
@@ -47,7 +47,7 @@ demo = {
           tension: 0
         }),
         low: 0,
-        high: 50, // SI Bergota: we recommend you to set the high sa the biggest value + something for a better look
+        high: 50, // SIAP BERGOTA: we recommend you to set the high sa the biggest value + something for a better look
         chartPadding: {
           top: 0,
           right: 0,
@@ -76,7 +76,7 @@ demo = {
           tension: 0
         }),
         low: 0,
-        high: 1000, // SI Bergota: we recommend you to set the high sa the biggest value + something for a better look
+        high: 1000, // SIAP BERGOTA: we recommend you to set the high sa the biggest value + something for a better look
         chartPadding: {
           top: 0,
           right: 0,
