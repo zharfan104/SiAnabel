@@ -23,6 +23,8 @@ const fb = firebase.initializeApp({
 
 exports.db = admin.firestore();
 
+exports.serverTimestamp = admin.firestore.FieldValue.serverTimestamp;
+
 exports.addUser = (email, password) =>
     fb.auth().createUserWithEmailAndPassword(email, password);
 exports.authenticate = (email, password) =>

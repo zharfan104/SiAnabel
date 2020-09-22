@@ -12,16 +12,17 @@ The above copyright notice and this permission notice shall be included in all c
 <!DOCTYPE html>
 <html lang="en">
 <%- contentFor('header') %>
-<style>
-    .modal-backdrop {
-        z-index: -1;
-    }
-</style>
+<link href="css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
+
+
 
 <body class="">
     <div class="wrapper ">
         <div class="sidebar" data-color="azure" data-background-color="white" data-image="/img/sidebar-1.jpg">
             <div class="sidebar-wrapper">
+                <div class="logo"><a href="./dashboard" class="simple-text logo-normal">
+                        SIAP BERGOTA
+                    </a></div>
                 <ul class="nav">
                     <li class="nav-item">
                         <a class="nav-link" href="./dashboard">
@@ -41,11 +42,12 @@ The above copyright notice and this permission notice shall be included in all c
                             <p>Pengaturan</p>
                         </a>
                     </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="./signOut">
-                            <i class="material-icons">login</i>
-                            <p>Keluar</p>
-                        </a>
+                    <li class="nav-item center">
+                        <form method="post" action="/logout?_method=DELETE">
+                            <button type="submit" class="btn btn-danger">
+                                Keluar
+                            </button>
+                        </form>
                     </li>
             </div>
         </div>
@@ -107,114 +109,179 @@ The above copyright notice and this permission notice shall be included in all c
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
     <div id="myModal" class="modal">
-        <div class="" role="document">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Detail Data</h5>
+                    <div class="col-md-8">
+                        <h3 class="modal-title" id="exampleModalLongTitle">Tambah Data Baru</h3>
+                    </div>
+                    <div class="col-md-4">
+                        <button onclick="document.getElementById('myModal').style.display='none'" type="button"
+                            class="btn btn-danger btn-block" data-dismiss="modal">Batal</button>
+                    </div>
                 </div>
                 <div class="modal-body">
                     <div class="p-3">
-                        <form action="/addData" method="POST">
-                            <h3>Data Jenazah</h3>
+                        <form action="/addDataMakam" method="POST">
+                            <h3>Data Ahli Waris</h3>
                             <div class="form-group">
-                                <label class="label-control">Nama Lengkap</label>
-                                <input type="text" name="namaLengkapJenazah" placeholder="Masukkan Nama Lengkap Jenazah"
+                                <label class="label-control">Nama Lengkap Ahli Waris</label>
+                                <input type="text" name="namaAhliWaris" placeholder="Masukkan Nama Ahli Waris"
                                     class="form-control" required autofocus required>
                             </div>
                             <div class="form-group">
-                                <label class="label-control">Tanggal Meninggal</label>
-                                <input type="date" id="datepicker" name="tanggalMeninggal"
-                                    placeholder="Masukkan Tanggal Meninggal" class="form-control" required>
+                                <label class="label-control">Pekerjaan</label>
+                                <input type="text" name="pekerjaanAhliWaris" placeholder="Masukkan Pekerjaan Ahli Waris"
+                                    class="form-control" required autofocus required>
                             </div>
                             <div class="form-group">
-                                <label class="label-control">Tanggal Kubur</label>
-                                <input type="date" id="datepicker1" name="tanggalKubur"
-                                    placeholder="Masukkan Tanggal Kubur" class="form-control" required>
+                                <label class="label-control">Alamat Lengkap</label>
+                                <input type="text" name="alamatAhliWaris" placeholder="Masukkan Alamat Ahli Waris"
+                                    class="form-control" required autofocus required>
                             </div>
-                            <div class="">
-                                <label class="label-control"></label>
+                            <div class="form-group">
+                                <label class="label-control">Kelurahan Ahli Waris</label>
+                                <input type="text" name="kelurahanAhliWaris" placeholder="Masukkan Kelurahan Ahli Waris"
+                                    class="form-control" required autofocus required>
+                            </div>
+                            <div class="form-group">
+                                <label class="label-control">Kecamatan Ahli Waris</label>
+                                <input type="text" name="kecamatanAhliWaris" placeholder="Masukkan Kecamatan Ahli Waris"
+                                    class="form-control" required autofocus required>
+                            </div>
+                            <div class="form-group">
+                                <label class="label-control">Nomor Telepon Ahli Waris</label>
+                                <input type="number" name="nomorTeleponAhliWaris"
+                                    placeholder="Masukkan Nomor Telepon Ahli Waris" class="form-control" required>
+                            </div>
+                            <h3>Data Jenazah</h3>
+                            <div class="form-group">
+                                <label class="label-control">Nama Lengkap Jenazah</label>
+                                <input type="text" name="namaJenazah" placeholder="Masukkan Nama Lengkap Jenazah"
+                                    class="form-control" required autofocus required>
+                            </div>
+                            <div class="form-group">
+                                <label class="label-control">Jenis Kelamin Jenazah</label>
                                 <br>
-                                <label class="radio-inline"><input type="radio" name="jenisKelamin"
-                                        value="Laki-laki">Laki-laki</label>
-                                <label class="radio-inline"><input type="radio" name="jenisKelamin"
-                                        value="Perempuan">Perempuan</label>
+                                <label class="radio"><input type="radio" name="jenisKelamin"
+                                        value="Laki-laki">Ada</label>
+                                <label class="radio"><input type="radio" name="jenisKelamin" value="Perempuan">Tidak
+                                    Ada</label>
                             </div>
                             <div class="form-group">
-                                <label class="label-control">Nama Bapak</label>
-                                <input type="text" name="namaBapak" placeholder="Masukkan Nama Bapak Jenazah"
-                                    class="form-control" required>
+                                <label class="label-control">Agama Jenazah</label>
+                                <input type="text" name="agamaJenazah" placeholder="Masukkan Agama Jenazah"
+                                    class="form-control" required autofocus required>
                             </div>
                             <div class="form-group">
-                                <label class="label-control">Nama Ibu</label>
-                                <input type="text" name="namaIbu" placeholder="Masukkan Nama Ibu Jenazah"
-                                    class="form-control" required>
+                                <label class="label-control">Alamat Jenazah</label>
+                                <input type="text" name="alamatJenazah" placeholder="Masukkan Alamat Jenazah"
+                                    class="form-control" required autofocus required>
                             </div>
                             <div class="form-group">
-                                <label class="label-control">Nama Istri/Suami</label>
-                                <input type="text" name="namaIstriSuami" placeholder="Masukkan Nama Istri/Suami Jenazah"
-                                    class="form-control" required>
+                                <label class="label-control">Kelurahan Jenazah</label>
+                                <input type="text" name="kelurahanJenazah" placeholder="Masukkan Kelurahan Jenazah"
+                                    class="form-control" required autofocus required>
+                            </div>
+                            <div class="form-group">
+                                <label class="label-control">Kecamatan Jenzah</label>
+                                <input type="text" name="kecamatanJenazah" placeholder="Masukkan Kecamatan Jenazah"
+                                    class="form-control" required autofocus required>
+                            </div>
+                            <div class="form-group">
+                                <label class="label-control">Kab/Kota Jenazah</label>
+                                <input type="text" name="kabkotaJenazah" placeholder="Masukkan Kab/Kota Jenazah"
+                                    class="form-control" required autofocus required>
+                            </div>
+                            <div class="form-group">
+                                <label class="label-control">Tanggal Meninggal Jenazah</label>
+                                <input type="date" id="datepicker" name="tanggalMeninggal"
+                                    placeholder="Masukkan Tanggal Meninggal Jenazah" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="label-control">Tanggal Dimakamkan Jenazah</label>
+                                <input type="date" id="datepicker1" name="tanggalDimakamkan"
+                                    placeholder="Masukkan Tanggal Kubur Jenazah" class="form-control" required>
                             </div>
                             <h3>Data Makam</h3>
                             <div class="form-group">
-                                <label class="label-control">Blok</label>
-                                <input type="text" name="blok" placeholder="Masukkan Blok makam" class="form-control"
-                                    required>
+                                <label class="label-control">Lokasi</label>
+                                <input type="text" name="lokasi" placeholder="Masukkan Lokasi Makam"
+                                    class="form-control" required autofocus required>
                             </div>
                             <div class="form-group">
-                                <label class="label-control">Bagian</label>
-                                <input type="text" name="bagian" placeholder="Masukkan Bagian makam"
+                                <label class="label-control">Blok / Perawat</label>
+                                <input type="text" name="blok" placeholder="Masukkan Blok / Perawat Makam"
                                     class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label class="label-control">Petak</label>
-                                <input type="text" name="petak" placeholder="Masukkan Petak makam" class="form-control"
-                                    required>
-                            </div>
-                            <h3>Data Penanggung Jawab</h3>
-                            <div class="form-group">
-                                <label class="label-control">Nama Lengkap</label>
-                                <input type="text" name="namaLengkapPenanggungJawab"
-                                    placeholder="Masukkan Nama Lengkap Penanggung Jawab" class="form-control" required
-                                    autofocus>
+                                <label class="label-control">Perpetaan Nomor</label>
+                                <input type="text" name="perpetaanNomor" placeholder="Masukkan Perpetaan Nomor Makam"
+                                    class="form-control" required autofocus required>
                             </div>
                             <div class="form-group">
-                                <label class="label-control">Hubungan dengan Jenazah</label>
-                                <input type="text" name="hubunganDenganPenanggungJawab"
-                                    placeholder="Masukkan Hubungan dengan Jenazah" class="form-control" required>
+                                <label class="label-control">Luas</label>
+                                <input type="text" name="luas" placeholder="Masukkan Luas Makam" class="form-control"
+                                    required autofocus required>
+                            </div>
+                            <h3>Syarat Pemakaman</h3>
+                            <div class="form-group">
+                                <label class="label-control">Surat Pemeriksaan Mayat</label>
+                                <br>
+                                <label class="radio"><input type="radio" name="isSuratPemeriksaanMayat"
+                                        value="Ada">Ada</label>
+
+                                <label class="radio"><input type="radio" name="isSuratPemeriksaanMayat"
+                                        value="Tidak Ada">Tidak
+                                    Ada</label>
                             </div>
                             <div class="form-group">
-                                <label class="label-control">Alamat</label>
-                                <input type="text" name="alamatPenanggungJawab" placeholder="Masukkan Alamat"
-                                    class="form-control" required>
+                                <label class="label-control">Surat dari Rumah Sakit</label>
+                                <br>
+                                <label class="radio"><input type="radio" name="isSuratRumahSakit"
+                                        value="Ada">Ada</label>
+
+                                <label class="radio"><input type="radio" name="isSuratRumahSakit"
+                                        value="Tidak Ada">Tidak Ada</label>
                             </div>
                             <div class="form-group">
-                                <label class="label-control">Nomor HP</label>
-                                <input type="number" name="nomorhpPenanggungJawab"
-                                    placeholder="Masukkan Nomor Handphone" class="form-control" required>
+                                <label class="label-control">Surat dari Lurah / Catatan Sipil</label>
+                                <br>
+                                <label class="radio"><input type="radio" name="isSuratLurahOrCapil"
+                                        value="Ada">Ada</label>
+
+                                <label class="radio"><input type="radio" name="isSuratLurahOrCapil"
+                                        value="Tidak Ada">Tidak Ada</label>
                             </div>
                             <div class="form-group">
-                                <label class="label-control">Kelurahan</label>
-                                <input type="text" name="kelurahanPenanggungJawab" placeholder="Masukkan Kelurahan"
-                                    class="form-control" required>
+                                <label class="label-control">Surat Kematian</label>
+                                <br>
+                                <label class="radio"><input type="radio" name="issuratKematian" value="Ada">Ada</label>
+                                <label class="radio"><input type="radio" name="issuratKematian" value="Tidak Ada">Tidak
+                                    Ada</label>
                             </div>
                             <div class="form-group">
-                                <label class="label-control">Kecamatan</label>
-                                <input type="text" name="kecamatanPenanggungJawab" placeholder="Masukkan Kecamatan"
-                                    class="form-control" required>
+                                <label class="label-control">Catatan / Keterangan Lainnya</label>
+                                <input type="text" name="keteranganLainnya"
+                                    placeholder="Masukkan Catatan / Keterangan Lainnya" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="label-control">Apakah Data Sudah Terverifikasi?</label>
+                                <br>
+                                <label class="radio"><input type="radio" name="isVerifikasi" value="Ada">Ada</label>
+                                <label class="radio"><input type="radio" name="isVerifikasi" value="Tidak Ada">Tidak
+                                    Ada</label>
                             </div>
                             <button class="btn btn-primary btn-block">
                                 Tambah Data
                             </button>
-                            <button onclick="document.getElementById('myModal').style.display='none'" type="button"
-                                class="btn btn-secondary btn-block" data-dismiss="modal">Batal</button>
                         </form>
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -228,9 +295,6 @@ The above copyright notice and this permission notice shall be included in all c
 
 <script src="https://unpkg.com/bootstrap-table@1.17.1/dist/bootstrap-table.min.js"></script>
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-
-
-
 <script>
     // your custom ajax request here
     function ajaxRequest2(params) {
@@ -298,6 +362,10 @@ The above copyright notice and this permission notice shall be included in all c
     }
 
     window.operateEvents = {
+        'click .edit': function (e, value, row, index) {
+            alert('You click like action, rows: ' + JSON.stringify(row))
+
+        },
         'click .remove': function (e, value, row, index) {
             $.post('/hapusDataMakam', // url
                 row, // data to be submit
@@ -306,11 +374,7 @@ The above copyright notice and this permission notice shall be included in all c
                 });
 
         },
-        'click .edit': function (e, value, row, index) {
 
-            alert('You click like action, row: ' + JSON.stringify(row))
-
-        }
     }
 
     function totalTextFormatter(data) {
@@ -349,100 +413,20 @@ The above copyright notice and this permission notice shall be included in all c
                         footerFormatter: totalNameFormatter,
                         align: 'center'
                     },
-                    //  {
-                    //   field: 'Tanggal Kubur',
-                    //   title: 'Tanggal Kubur',
-                    //   sortable: true,
-                    //   footerFormatter: totalNameFormatter,
-                    //   align: 'center'
-                    // }, {
-                    //   field: 'Jenis Kelamin',
-                    //   title: 'Jenis Kelamin',
-                    //   sortable: true,
-                    //   footerFormatter: totalNameFormatter,
-                    //   align: 'center'
-                    // }, 
-                    // {
-                    //   field: 'Nama Bapak',
-                    //   title: 'Nama Bapak',
-                    //   sortable: true,
-                    //   footerFormatter: totalNameFormatter,
-                    //   align: 'center'
-                    // }, {
-                    //   field: 'Nama Ibu',
-                    //   title: 'Nama Ibu',
-                    //   sortable: true,
-                    //   footerFormatter: totalNameFormatter,
-                    //   align: 'center'
-                    // }, {
-                    //   field: 'Nama Istri/Suami',
-                    //   title: 'Nama Istri/Suami',
-                    //   sortable: true,
-                    //   footerFormatter: totalNameFormatter,
-                    //   align: 'center'
-                    // },
-                    //  {
-                    //   field: 'Blok',
-                    //   title: 'Blok',
-                    //   sortable: true,
-                    //   footerFormatter: totalNameFormatter,
-                    //   align: 'center'
-                    // }, {
-                    //   field: 'Bagian',
-                    //   title: 'Bagian',
-                    //   sortable: true,
-                    //   footerFormatter: totalNameFormatter,
-                    //   align: 'center'
-                    // }, {
-                    //   field: 'Petak',
-                    //   title: 'Petak',
-                    //   sortable: true,
-                    //   footerFormatter: totalNameFormatter,
-                    //   align: 'center'
-                    // }, 
-                    // {
-                    //   field: 'Nama Penanggung Jawab',
-                    //   title: 'Nama Penanggung Jawab',
-                    //   sortable: true,
-                    //   footerFormatter: totalNameFormatter,
-                    //   align: 'center'
-                    // },
-                    //  {
-                    //   field: 'Hubungan PJ',
-                    //   title: 'Hubungan PJ',
-                    //   sortable: true,
-                    //   footerFormatter: totalNameFormatter,
-                    //   align: 'center'
-                    // },
                     {
-                        field: 'Nomor Telepon PJ',
-                        title: 'Nomor Telepon PJ',
+                        field: 'Nama Ahli Waris',
+                        title: 'Nama Ahli Waris',
                         sortable: true,
                         footerFormatter: totalNameFormatter,
                         align: 'center'
                     },
-                    //  {
-                    //   field: 'Alamat PJ',
-                    //   title: 'Alamat PJ',
-                    //   sortable: true,
-                    //   align: 'center',
-                    //   footerFormatter: totalPriceFormatter
-                    // },
-                    // {
-                    //   field: 'Kelurahan PJ',
-                    //   title: 'Kelurahan PJ',
-                    //   sortable: true,
-                    //   align: 'center',
-                    //   footerFormatter: totalPriceFormatter
-                    // },
                     {
-                        field: 'Kecamatan PJ',
-                        title: 'Kecamatan PJ',
+                        field: 'No. Telepon Ahli Waris',
+                        title: 'No. Telepon Ahli Waris',
                         sortable: true,
-                        align: 'center',
-                        footerFormatter: totalPriceFormatter
+                        footerFormatter: totalNameFormatter,
+                        align: 'center'
                     },
-
                     {
                         field: 'Edit Data',
                         title: 'Edit Data',
@@ -480,4 +464,11 @@ The above copyright notice and this permission notice shall be included in all c
         initTable()
         $('#locale').change(initTable)
     })
+
+    function DoPost() {
+        $.post("WhateverPage.php", {
+            name: "John",
+            time: "2pm"
+        }); //Your values here..
+    }
 </script>

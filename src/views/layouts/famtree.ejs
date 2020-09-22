@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- contentFor('header') %>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tree maker 🌳</title>
+    <link rel="stylesheet" href="lib/tree_maker-min.css">
+    <script type="text/javascript" src="lib/tree_maker-min.js"></script>
+</head>
+
+<body>
+    <div id="my_tree"></div>
+    <script type="text/javascript">
+        let tree = {
+            1: {
+                2: '',
+                3: {
+                    6: '',
+                    7: '',
+                },
+                4: '',
+                5: ''
+            },
+        };
+
+        let treeParams = {
+            1: {
+                trad: 'Card 1'
+            },
+            2: {
+                trad: 'Card 2'
+            },
+            3: {
+                trad: 'Card 3'
+            },
+            4: {
+                trad: 'Card 4'
+            },
+            5: {
+                trad: 'Card 5'
+            },
+            6: {
+                trad: 'Card 6'
+            },
+            7: {
+                trad: 'Card 7'
+            },
+        };
+
+        treeMaker(tree, {
+            id: 'my_tree',
+            card_click: function (element) {
+                console.log(element);
+            },
+            treeParams: treeParams,
+            'link_width': '4px',
+            'link_color': '#2199e8',
+        });
+    </script>
+</body>
+
+</html>

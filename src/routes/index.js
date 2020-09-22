@@ -1,42 +1,84 @@
 const userService = require("./user_services");
 
 
-fromKeyMap = {
-    namaLengkapJenazah: "Nama Jenazah",
+fromKeyMapMakam = {
+
+    namaAhliWaris: "Nama Ahli Waris",
+    pekerjaanAhliWaris: "Pekerjaan Ahli Waris",
+    alamatAhliWaris: "Alamat Ahli Waris",
+    kelurahanAhliWaris: "Kelurahan Ahli Waris",
+    kecamatanAhliWaris: "Kecamatan Ahli Waris",
+    nomorTeleponAhliWaris: "No. Telepon Ahli Waris",
+    namaJenazah: "Nama Jenazah",
+    jenisKelamin: "Jenis Kelamin Jenazah",
+    agamaJenazah: "Agama Jenazah",
+    alamatJenazah: "Alamat Jenazah",
+    kelurahanJenazah: "Kelurahan Jenazah",
+    kecamatanJenazah: "Kecamatan Jenazah",
+    kabkotaJenazah: "Kab/Kota Jenazah",
     tanggalMeninggal: "Tanggal Meninggal",
-    tanggalKubur: "Tanggal Kubur",
-    jenisKelamin: "Jenis Kelamin",
-    namaBapak: "Nama Bapak",
-    namaIbu: "Nama Ibu",
-    namaIstriSuami: "Nama Istri/Suami",
+    tanggalDimakamkan: "Tanggal Dimakamkan",
+    lokasi: "Lokasi",
     blok: "Blok",
-    bagian: "Bagian",
-    petak: "Petak",
-    namaLengkapPenanggungJawab: "Nama Penanggung Jawab",
-    hubunganDenganPenanggungJawab: "Hubungan PJ",
-    nomorhpPenanggungJawab: "Nomor Telepon PJ",
-    alamatPenanggungJawab: "Alamat PJ",
-    kelurahanPenanggungJawab: "Kelurahan PJ",
-    kecamatanPenanggungJawab: "Kecamatan PJ",
+    perpetaanNomor: "Perpetaan Nomor",
+    luas: "Luas",
+    isSuratPemeriksaanMayat: "Surat Pemerisaan Mayat",
+    isSuratRumahSakit: "Surat Rumah Sakit",
+    isSuratLurahOrCapil: "Surat Lurah/Catatan Sipil",
+    issuratKematian: "Surat Kematian",
+    isVerifikasi: "Sudah Terverifikasi",
+    keteranganLainnya: "Keterangan Lainnya",
+    lastEdit: "Edit Terakhir"
 };
-listdariobjek = [
-    "namaLengkapJenazah",
-    "tanggalMeninggal",
-    "tanggalKubur",
-    "jenisKelamin",
-    "namaBapak",
-    "namaIbu",
-    "namaIstriSuami",
-    "blok",
-    "bagian",
-    "petak",
-    "namaLengkapPenanggungJawab",
-    "hubunganDenganPenanggungJawab",
-    "nomorhpPenanggungJawab",
-    "alamatPenanggungJawab",
-    "kelurahanPenanggungJawab",
-    "kecamatanPenanggungJawab",
+
+
+fromKeyMapJuri = {
+    namaJuruMakam: "Nama Juru Makam",
+    blokJuruMakam: "Blok Juru Makam",
+    alamatJuruMakam: "Alamat Juru Makam",
+    noTeleponJuruMakam: "No. Telepon Juru Makam",
+    lastEdit: "Edit Terakhir"
+};
+
+
+listdataMakam = [
+    'namaAhliWaris',
+    'pekerjaanAhliWaris',
+    'alamatAhliWaris',
+    'kelurahanAhliWaris',
+    'kecamatanAhliWaris',
+    'nomorTeleponAhliWaris',
+    'namaJenazah',
+    'jenisKelamin',
+    'agamaJenazah',
+    'alamatJenazah',
+    'kelurahanJenazah',
+    'kecamatanJenazah',
+    'kabkotaJenazah',
+    'tanggalMeninggal',
+    'tanggalDimakamkan',
+    'lokasi',
+    'blok',
+    'perpetaanNomor',
+    'luas',
+    'isSuratPemeriksaanMayat',
+    'isSuratRumahSakit',
+    'isSuratLurahOrCapil',
+    'issuratKematian',
+    'isVerifikasi',
+    'keteranganLainnya',
+    'lastEdit'
 ];
+
+listdataJuri = [
+    'namaJuruMakam',
+    'alamatJuruMakam',
+    'noTeleponJuruMakam',
+    'blokJuruMakam',
+    'lastEdit'
+];
+
+
 
 const {
     Router
@@ -45,13 +87,42 @@ const passport = require("passport");
 const router = Router();
 
 router.get("/", (req, res) => {
-    // userService.db.ref('contacts').once('value', (snapshot) => {
-    //     data = snapshot.val();
-    //     res.render('index', {
-    //         contacts: data
-    //     })
-    // });
-    res.render("layouts/homepage.ejs");
+    res.render("layouts/homepagenew.ejs");
+});
+
+router.get("/artikelsingle", (req, res) => {
+    res.render("layouts/blog-single.ejs");
+});
+
+
+router.get("/pricing", (req, res) => {
+    res.render("layouts/pricing.ejs");
+});
+
+
+router.get("/hasilcarileluhur", (req, res) => {
+    res.render("layouts/hasilcarileluhur.ejs");
+});
+
+
+router.get("/artikel", (req, res) => {
+    res.render("layouts/blog.ejs");
+});
+router.get("/tilik", (req, res) => {
+    res.render("layouts/tilik.ejs");
+});
+router.get("/carileluhur", (req, res) => {
+    res.render("layouts/carileluhur.ejs");
+});
+router.get("/statistik", (req, res) => {
+    res.render("layouts/about.ejs");
+});
+router.get("/kontakkami", (req, res) => {
+    res.render("layouts/contact.ejs");
+});
+
+router.get("/jurukunci", (req, res) => {
+    res.render("layouts/jurukunci.ejs");
 });
 
 router.get("/signOut", (req, res) => {
@@ -61,7 +132,7 @@ router.get("/signOut", (req, res) => {
     //         contacts: data
     //     })
     // });
-    res.render("layouts/homepage.ejs");
+    res.render("layouts/homepagenew.ejs");
 });
 router.get("/dashboard", checkAuthenticated, (req, res) => {
     res.render("layouts/dashboard.ejs");
@@ -86,7 +157,7 @@ router.get("/rtl", checkAuthenticated, (req, res) => {
     res.render("layouts/rtl.ejs");
 });
 
-router.get("/tables", (req, res) => {
+router.get("/tables", checkAuthenticated, (req, res) => {
     res.render("layouts/tables.ejs");
 });
 
@@ -105,7 +176,17 @@ router.get("/test", async (req, res) => {
 });
 
 router.get("/pengaturan", checkAuthenticated, (req, res) => {
-    res.render("layouts/pengaturan.ejs");
+    var dataMakam = userService.db.collection('dataDashboard').doc('biayaSewa');
+    console.log(dataMakam.get().then(
+        function (querySnapshot) {
+            var data = querySnapshot.data();
+            console.log(data)
+            res.render("layouts/pengaturan.ejs", {
+                datamasukkan: data,
+                header: null
+            });
+        }
+    ));
 });
 
 router.get("/forgot", (req, res) => {
@@ -118,11 +199,11 @@ router.get("/reset", (req, res) => {
 });
 
 router.get("/homepage", (req, res) => {
-    res.render("layouts/homepage.ejs");
+    res.render("layouts/homepagenew.ejs");
 });
 router.post("/hapusDataMakam", (req, res) => {
     // Create a document reference
-    var dataMakam = userService.db.collection('dataMakam').where('namaLengkapJenazah', '==', 'Nama Lengkap');
+    var dataMakam = userService.db.collection('dataMakam').where('namaJuruMakam', '==', 'Nama Lengkap');
     dataMakam.get().then(function (querySnapshot) {
         querySnapshot.forEach(function (doc) {
             doc.ref.delete();
@@ -130,37 +211,82 @@ router.post("/hapusDataMakam", (req, res) => {
     });
     // Remove the 'capital' field from the document
 });
-router.post("/homepage", (req, res) => {
-    res.render("layouts/homepage.ejs");
+router.post("/hapusDataJuruMakam", (req, res) => {
+    // Create a document reference
+    var dataMakam = userService.db.collection('dataJuruKunci').where('noTeleponJuruMakam', '==', req.body['No. Telepon Juru Makam']);
+    dataMakam.get().then(function (querySnapshot) {
+        querySnapshot.forEach(function (doc) {
+            console.log(doc.data())
+            doc.ref.delete();
+            res.redirect('/pengaturan?info=berhasil')
+
+        });
+    });
+    // Remove the 'capital' field from the document
 });
 
 
-router.post("/addData", (req, res) => {
-    const data = {
-        namaLengkapJenazah: req.body.namaLengkapJenazah,
-        tanggalMeninggal: req.body.tanggalMeninggal,
-        tanggalKubur: req.body.tanggalKubur,
-        jenisKelamin: req.body.jenisKelamin,
-        namaBapak: req.body.namaBapak,
-        namaIbu: req.body.namaIbu,
-        namaIstriSuami: req.body.namaIstriSuami,
-        blok: req.body.blok,
-        bagian: req.body.bagian,
-        petak: req.body.petak,
-        namaLengkapPenanggungJawab: req.body.namaLengkapPenanggungJawab,
-        hubunganDenganPenanggungJawab: req.body.hubunganDenganPenanggungJawab,
-        alamatPenanggungJawab: req.body.alamatPenanggungJawab,
-        nomorhpPenanggungJawab: req.body.nomorhpPenanggungJawab,
-        kelurahanPenanggungJawab: req.body.kelurahanPenanggungJawab,
-        kecamatanPenanggungJawab: req.body.kecamatanPenanggungJawab,
-    };
+
+router.post("/addDataMakam", (req, res) => {
+    var data = req.body;
+
+    data['lastEdit'] = userService.serverTimestamp().toString();
     // Add a new document in collection "cities" with ID 'LA'
     userService.db
         .collection("dataMakam")
-        .doc(data.namaLengkapJenazah + "_" + data.bagian)
+        .doc(data.namaJenazah + "_" + data.perpetaanNomor)
         .set(data);
     res.redirect("/tables");
 });
+
+router.post("/editDataMakam", (req, res) => {
+    var data = req.body;
+    data['lastEdit'] = userService.serverTimestamp().toString();
+
+    // Add a new document in collection "cities" with ID 'LA'
+    userService.db
+        .collection("dataMakam")
+        .doc(data.namaJenazah + "_" + data.perpetaanNomor)
+        .update(data);
+    res.redirect("/pengaturan?info=Berhasil Edit Data Makam");
+});
+
+
+router.post("/addDataJuruKunci", (req, res) => {
+    var data = req.body;
+    data['lastEdit'] = userService.serverTimestamp();
+
+    // Add a new document in collection "cities" with ID 'LA'
+    userService.db
+        .collection("dataJuruKunci")
+        .doc(data.namaJuruMakam + "_" + data.noTeleponJuruMakam)
+        .set(data);
+    res.redirect("/pengaturan?info=Berhasil Add Data Juru Kunci");
+});
+router.post("/editDataJuruKunci", (req, res) => {
+    var data = req.body;
+    data['lastEdit'] = userService.serverTimestamp().toString();
+    // Add a new document in collection "cities" with ID 'LA'
+    userService.db
+        .collection("dataJuruKunci")
+        .doc(data.namaJuruMakam + "_" + data.noTeleponJuruMakam)
+        .set(data);
+    res.redirect("/pengaturan?info=Berhasil Edit Data Juru Kunci");
+});
+router.post("/editDataBiaya", (req, res) => {
+    var data = req.body;
+    // data['lastEdit'] = new Date.now().toLocaleDateString();
+    // Add a new document in collection "cities" with ID 'LA'
+    console.log(data);
+    data['lastEdit'] = userService.serverTimestamp();
+    userService.db
+        .collection("dataDashboard")
+        .doc('biayaSewa')
+        .set(data);
+
+    res.redirect("/pengaturan?info=Berhasil Edit Data Biaya");
+});
+
 router.get("/getDataMakam", async (req, res) => {
     const citiesRef = userService.db.collection("dataMakam");
     const snapshot = await citiesRef.get();
@@ -173,10 +299,10 @@ router.get("/getDataMakam", async (req, res) => {
     };
     snapshot.forEach((doc) => {
         let map = new Map();
-        listdariobjek.forEach((x) => {
+        listdataMakam.forEach((x) => {
             // console.log(x)
-            // console.log(fromKeyMap[x], doc.data()[x])
-            map.set(fromKeyMap[x], doc.data()[x]);
+            // console.log(fromKeyMapMakam[x], doc.data()[x])
+            map.set(fromKeyMapMakam[x], doc.data()[x]);
         });
         const mapakhir = Object.fromEntries(map);
         obj.rows.push(mapakhir);
@@ -185,7 +311,7 @@ router.get("/getDataMakam", async (req, res) => {
     res.send(obj);
 });
 router.get("/getDataJuri", async (req, res) => {
-    const citiesRef = userService.db.collection("dataMakam");
+    const citiesRef = userService.db.collection("dataJuruKunci");
     const snapshot = await citiesRef.get();
     if (snapshot.empty) {
         console.log("No matching documents.");
@@ -196,15 +322,23 @@ router.get("/getDataJuri", async (req, res) => {
     };
     snapshot.forEach((doc) => {
         let map = new Map();
-        listdariobjek.forEach((x) => {
-            // console.log(x)
-            // console.log(fromKeyMap[x], doc.data()[x])
-            map.set(fromKeyMap[x], doc.data()[x]);
+        listdataJuri.forEach((x) => {
+            if (x == 'lastEdit') {
+                try {
+                    console.log(doc.data()[x].toDate().toString());
+                    map.set(fromKeyMapJuri[x], doc.data()[x].toDate().toString());
+                } catch {}
+            } else {
+                map.set(fromKeyMapJuri[x], doc.data()[x]);
+
+            }
         });
+
+
         const mapakhir = Object.fromEntries(map);
+
         obj.rows.push(mapakhir);
     });
-    console.log(obj.rows[0]);
     res.send(obj);
 });
 router.get("/delete-contact/:id", (req, res) => {
@@ -274,7 +408,7 @@ router.post("/register", checkNotAuthenticated, async (req, res) => {
 });
 router.delete("/logout", (req, res) => {
     req.logOut();
-    res.redirect("/login");
+    res.redirect("/");
 });
 
 function checkAuthenticated(req, res, next) {
