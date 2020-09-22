@@ -39,8 +39,6 @@ fromKeyMapJuri = {
     noTeleponJuruMakam: "No. Telepon Juru Makam",
     lastEdit: "Edit Terakhir"
 };
-
-
 listdataMakam = [
     'namaAhliWaris',
     'pekerjaanAhliWaris',
@@ -69,7 +67,6 @@ listdataMakam = [
     'keteranganLainnya',
     'lastEdit'
 ];
-
 listdataJuri = [
     'namaJuruMakam',
     'alamatJuruMakam',
@@ -77,9 +74,6 @@ listdataJuri = [
     'blokJuruMakam',
     'lastEdit'
 ];
-
-
-
 const {
     Router
 } = require("express");
@@ -103,7 +97,9 @@ router.get("/pricing", (req, res) => {
 router.get("/hasilcarileluhur", (req, res) => {
     res.render("layouts/hasilcarileluhur.ejs");
 });
-
+router.get("/hasipencarian", (req, res) => {
+    res.render("layouts/hasilpencarian.ejs");
+});
 
 router.get("/artikel", (req, res) => {
     res.render("layouts/blog.ejs");
